@@ -1,11 +1,8 @@
 import { Router } from "express";
+import { register } from "../controllers/auth.controller";
 
 const router = Router();
 
-router.post("/register", (req, res) => {
-  return res.status(201).json({
-    message: "User registered successfully"
-  });
-});
+router.post("/register", register);
 
 export default router;
