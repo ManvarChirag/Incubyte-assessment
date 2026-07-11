@@ -1,5 +1,16 @@
-describe("Authentication", () => {
-  test("should register a new user", () => {
-    expect(true).toBe(false);
+import request from "supertest";
+import app from "../app";
+
+describe("Authentication API", () => {
+  it("should register a new user", async () => {
+    const response = await request(app)
+      .post("/api/auth/register")
+      .send({
+        name: "Chirag",
+        email: "chirag@test.com",
+        password: "password123"
+      });
+
+    expect(response.status).toBe(201);
   });
 });
